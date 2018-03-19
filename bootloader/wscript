@@ -615,6 +615,7 @@ def configure(ctx):
             # zlib is not part of the AIX.  We have to statically link
             # against it.
             ctx.check_cc(stlib='z', mandatory=True, uselib_store='Z')
+            ctx.env.append_value('INCLUDES', './zlib')
         # This uses Boehm GC to manage memory - it replaces malloc() / free()
         # functions. Some messages are printed if memory is not deallocated.
         if ctx.options.boehmgc:
